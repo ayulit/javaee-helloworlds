@@ -28,11 +28,32 @@
             <version>${hibernate-version}</version>
         </dependency>
 
+		<!-- Needed for persist using Hibernate API -->
+		<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.12.0.GA</version>
+		</dependency>
+
 		<!-- PostgreSQL Drivers -->
 		<dependency>
 		    <groupId>postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		    <version>${postgresql.ver}</version>
+		</dependency>
+
+		<!-- To avoid ClassNotFoundException: Kernel32 - Not worked for me! -->
+		<dependency>
+		   <groupId>net.java.dev.jna</groupId>
+		   <artifactId>jna-platform</artifactId>
+		   <version>4.0.0</version>
+		</dependency>
+
+		<!-- To avoid ClassNotFoundException: Kernel32 -->
+		<dependency>
+		    <groupId>io.fabric8</groupId>
+		    <artifactId>tooling-jclouds-all</artifactId>
+		    <version>1.2.0.Beta4</version>
 		</dependency>
   
   </dependencies>
@@ -48,6 +69,21 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			
+		    <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <version>2.4</version>
+	            <configuration>
+	                <archive>
+	                    <index>true</index>
+	                    <manifest>
+	                        <mainClass>com.basepack.main.Blash</mainClass>
+	                    </manifest>
+	                </archive>
+	             </configuration>
+             </plugin>	
+			
 		</plugins>
   </build>
   
