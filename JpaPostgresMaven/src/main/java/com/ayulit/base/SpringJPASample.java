@@ -14,13 +14,22 @@ public class SpringJPASample {
 		
 		FruitService fruitService = ctx.getBean("jpaFruitServce",FruitService.class);
 
+		FruitORM fruit = null;
+		
+		// test #0
+		fruit = new FruitORM();
+		fruit.setName("Orange");
+		fruitService.save(fruit);
+		
 		// test #1
-		FruitORM fruit = fruitService.findById(1);		
+		fruit = fruitService.findById(1);		
 		System.out.println(fruit);
 		
 		// test #2
 		listFruits(fruitService.findAll());
 		
+		
+		ctx.close();
 	}
 
 	private static void listFruits(List<FruitORM> fruits) {

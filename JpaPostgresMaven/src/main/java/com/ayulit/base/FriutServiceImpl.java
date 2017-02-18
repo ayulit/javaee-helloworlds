@@ -34,7 +34,24 @@ public class FriutServiceImpl implements FruitService {
 
 	@Override
 	public void save(FruitORM fruit) {
-		// TODO Auto-generated method stub
+		
+		// checks if the object is new one
+		if (fruit.getId() == null) {
+			
+			System.out.println("Inserting new fruit");
+			
+			// persisting object to DB
+			em.persist(fruit);
+			
+		} else {
+			
+			em.merge(fruit);
+			
+			System.out.println("Updating existing fruit");
+
+		}
+		
+		System.out.println("Fruit saved with id: " + fruit.getId());
 
 	}
 
