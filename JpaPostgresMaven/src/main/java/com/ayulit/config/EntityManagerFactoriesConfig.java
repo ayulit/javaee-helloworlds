@@ -42,6 +42,11 @@ public class EntityManagerFactoriesConfig {
 		properties.put("hibernate.jdbc.batch_size", "10");
 		properties.put("hibernate.show_sql", "true");
 		
+		// Drop and re-create the database schema on startup,
+		// -create: every time
+		// -update: if ONLY model changed!
+		properties.put("hibernate.hbm2ddl.auto", "create");
+		
 		return properties;
 	}
 	
