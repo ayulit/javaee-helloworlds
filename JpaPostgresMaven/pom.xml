@@ -53,6 +53,20 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>${postgresql.ver}</version>
 		</dependency>  
+
+	  	<!-- Embedded PostgreSQL by Yandex -->
+		<dependency>
+	        <groupId>ru.yandex.qatools.embed</groupId>
+	        <artifactId>embedded-services</artifactId>
+	        <version>1.21</version>
+	    </dependency>
+	    
+		<!-- To avoid ClassNotFoundException: Kernel32 -->
+		<dependency>
+		    <groupId>io.fabric8</groupId>
+		    <artifactId>tooling-jclouds-all</artifactId>
+		    <version>1.2.0.Beta4</version>
+		</dependency>	    
 		
 	</dependencies>
   
